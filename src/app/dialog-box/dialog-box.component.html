@@ -1,0 +1,38 @@
+<!-- dialog-box.component.html -->
+<h1 mat-dialog-title>Edit RAMS :: <strong>{{action}}</strong></h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="action == 'Update';">
+    <input placeholder="{{action}} Brand" matInput [(ngModel)]="local_data.Brand">
+  </mat-form-field>
+  <mat-form-field *ngIf="action == 'Update';">
+    <input placeholder="{{action}} Model" matInput [(ngModel)]="local_data.Model">
+  </mat-form-field>
+  <mat-form-field *ngIf="action == 'Update';">
+    <input placeholder="{{action}} Clock Speed" matInput [(ngModel)]="local_data.Clock_speed">
+  </mat-form-field>
+  <mat-form-field *ngIf="action == 'Update';">
+    <input placeholder="{{action}} Size" matInput [(ngModel)]="local_data.Size">
+  </mat-form-field>
+  <mat-form-field *ngIf="action == 'Update';">
+    <input placeholder="{{action}} CAS Latency" matInput [(ngModel)]="local_data.CAS_latency">
+  </mat-form-field>
+  <mat-form-field *ngIf="action == 'Update';">
+    <input placeholder="{{action}} ECC Status" matInput [(ngModel)]="local_data.ECC_status">
+  </mat-form-field>
+  <mat-form-field *ngIf="action == 'Update';">
+    <input placeholder="{{action}} Price(€)" matInput [(ngModel)]="local_data.Price">
+  </mat-form-field>
+  <mat-form-field *ngIf="action == 'Update';">
+    <mat-label>{{action}} Type</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option>{{local_data.Ttype}} | Current</mat-option>
+      <mat-option value="DDR3">DDR3</mat-option>
+      <mat-option value="DDR4">DDR4</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>

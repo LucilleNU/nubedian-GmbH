@@ -1,0 +1,78 @@
+.Company_name {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+
+  table {
+    width: 100%;
+  }
+  
+  tr.example-detail-row {
+    height: 0;
+  }
+  
+  tr.example-RAM-row:not(.example-expanded-row):hover {
+    background: #f5f5f5;
+  }
+  
+  tr.example-RAM-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+  
+  .example-RAM-row td {
+    border-bottom-width: 0;
+  }
+  
+  .example-RAM-detail {
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .example-RAM-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: bold;
+    margin: 8px 0;
+    height: 104px;
+  }
+  
+  .example-RAM-description {
+    padding: 16px;
+  }
+  
+  .example-RAM-description-attribution {
+    opacity: 0.5;
+  }
+
+  .footer{
+    flex-shrink: 0;
+    flex-grow: 0;
+    background: #eee;
+    padding: 3px 15px;
+    display: block;
+    min-height: 135px;
+  }
+
+.toLeft{
+    float:left;
+    display:inline-block;
+    overflow: hidden;
+}
+
+.toRight{
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    float:right;
+    top:0;
+}
+.content{
+    margin-bottom:10px;
+}
+.img{
+    padding: 15px;
+}
+
+  
