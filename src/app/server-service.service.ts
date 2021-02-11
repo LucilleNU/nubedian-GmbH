@@ -21,11 +21,11 @@ export class ServerServiceService {
   }
 
   editRams(row_obj){
-    return this.http.post(this.serverUrl + 'api/edit/rams', row_obj)
+    console.log("Logging Row "+ row_obj)
+    return this.http.put(this.serverUrl + 'api/edit/rams', row_obj)
     .pipe(map((res) => {res;
-    console.log("logging edits" + row_obj)
+    //console.log("logging edits" + row_obj)
     return row_obj;
     }));
   }
-
 }

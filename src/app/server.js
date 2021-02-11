@@ -1,8 +1,10 @@
 var express = require('express')
 var cors = require('cors')
+var bodyParser = require('body-parser')
 var app = express()
 const port = 3000
 var mysql      = require('mysql');
+var jsonParser = bodyParser.json()
 
 app.use(cors())
 
@@ -29,26 +31,17 @@ app.get('/api/get/rams', function (req, res) {
     res.send(ramBrands)
   })
 
-app.post('/api/edit/rams', function (req, res) {
- // res.json(req.body);
-  var postData  = req.body;
-  connection.query('UPDATE `rambrand` SET `Size`=?,`CAS_latency`=?,`ECC_status`=?, `Price`=?,`Clock_speed`=? where `id`=?', [req.body.Size, req.body.CAS_latency, req.body.ECC_status, req.body.Price, req.body.Clock_speed, req.body.id], function (error, results, fields) {
+app.put('/api/edit/rams', jsonParser, function (req, res) {
+ console.log("Logging Edit Value " + JSON.stringify(req.body));
+  connection.query('UPDATE `rambrand` SET `Brand`=?, `Model`=?, `ramtype_id`=?, `Size`=?,`CAS_latency`=?,`ECC_status`=?, `Price`=?,`Clock_speed`=? where `id`=?', [req.body.Brand, req.body.Model, req.body.Ttype, req.body.Size, req.body.CAS_latency, req.body.ECC_status, req.body.Price, req.body.Clock_speed, req.body.id], function (error, results, fields) {
     if (error) throw error;
    res.end(JSON.stringify(results));
  });
   })  
 
- /*app.post('/api/post/rams', function(res){
-    if (res){
-        res.send('success')
-    }
-    else
-    res.send('error')
-} )*/
-
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`)
   })
 
-connection.end();
+//connection.end();
 

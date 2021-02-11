@@ -25,7 +25,6 @@ export class DialogBoxComponent {
 
   action:string;
   local_data:any;
-  selected: any;
 
   constructor(
     public dialogRef: MatDialogRef<DialogBoxComponent>,
@@ -34,8 +33,14 @@ export class DialogBoxComponent {
     console.log(data);
     this.local_data = {...data};
     this.action = this.local_data.action;
-    this.selected = this.local_data.Ttype;
-  }
+    this.local_data.Ttype = this.Ttypes[1].id; 
+    }
+
+    //selected: string;
+    Ttypes = [
+      {id: 1, name: "DDR3"},
+      {id: 2, name: "DDR4"}
+    ];
 
   doAction(){
     this.dialogRef.close({event:this.action,data:this.local_data});

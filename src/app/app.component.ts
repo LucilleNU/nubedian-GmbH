@@ -45,7 +45,6 @@ export class AppComponent {
 
   updateRowData(row_obj){
     this.allRamsData = this.allRamsData.filter((value,key)=>{
-      console.log("logging obg " + JSON.stringify (row_obj))
       this.myService.editRams(row_obj).subscribe(res => {})
       return true;
     });
